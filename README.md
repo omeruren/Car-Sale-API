@@ -1,9 +1,20 @@
-# Car Sale API
+# Car Sale Platform
 
-A robust and scalable RESTful API for a car sales platform built with Node.js, Express.js, TypeScript, and MongoDB.
+A full-stack car sales platform with a robust RESTful API backend and modern React frontend.
+
+## 🏗️ Project Structure
+
+This is a monorepo containing both backend and frontend applications:
+
+```
+car-sale/
+├── backend/          # Node.js + Express.js API
+└── frontend/         # React + TypeScript Web App
+```
 
 ## 🚀 Features
 
+### Backend API
 - **User Authentication & Authorization** - JWT-based authentication with secure middleware
 - **Car Management** - Complete CRUD operations for car listings with filtering capabilities
 - **Brand & Category Management** - Organized car categorization system
@@ -14,8 +25,17 @@ A robust and scalable RESTful API for a car sales platform built with Node.js, E
 - **Logging** - Comprehensive logging with Winston
 - **Database** - MongoDB with Mongoose ODM
 
+### Frontend Web App
+- **Modern React UI** - Built with React 18 + TypeScript + Vite
+- **Responsive Design** - Mobile-first design with Tailwind CSS
+- **Navigation** - React Router for client-side routing
+- **State Management** - React Query for server state + Zustand for client state
+- **Form Handling** - React Hook Form with Zod validation
+- **API Integration** - Axios with interceptors for seamless backend communication
+
 ## 🛠️ Tech Stack
 
+### Backend
 - **Runtime**: Node.js
 - **Framework**: Express.js
 - **Language**: TypeScript
@@ -26,6 +46,17 @@ A robust and scalable RESTful API for a car sales platform built with Node.js, E
 - **Logging**: Winston
 - **Rate Limiting**: express-rate-limit
 - **Development**: Nodemon, ts-node
+
+### Frontend
+- **Framework**: React 18
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Routing**: React Router
+- **State Management**: React Query + Zustand
+- **Forms**: React Hook Form + Zod
+- **HTTP Client**: Axios
+- **Icons**: Lucide React
 
 ## 📋 Prerequisites
 
