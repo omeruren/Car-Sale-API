@@ -1,14 +1,12 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Car, User, LogOut } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
 
 export function Navbar() {
-  const navigate = useNavigate();
-  const token = localStorage.getItem('token');
-  const isAuthenticated = !!token;
+  const { isAuthenticated, user, logout } = useAuth();
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/');
+    logout();
   };
 
   return (
@@ -43,7 +41,7 @@ export function Navbar() {
                   className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   <User className="h-4 w-4" />
-                  <span>Profile</span>
+                  <span>{user?.name || 'Profile'}</span>
                 </Link>
                 <button
                   onClick={handleLogout}
