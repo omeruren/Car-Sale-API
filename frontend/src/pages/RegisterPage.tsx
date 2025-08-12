@@ -53,70 +53,61 @@ export function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8">
-        <div className="text-center">
-          <div className="flex justify-center">
-            <Car className="h-12 w-12 text-blue-600" />
+    <div className="auth-container">
+      <div className="auth-card">
+        <div className="auth-header">
+          <div className="flex justify-center mb-4">
+            <Car className="text-blue-600" style={{ width: '3rem', height: '3rem' }} />
           </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">
-            Create your account
-          </h2>
-          <p className="mt-2 text-sm text-gray-600">
+          <h2>Create your account</h2>
+          <p>
             Or{' '}
-            <Link
-              to="/login"
-              className="font-medium text-blue-600 hover:text-blue-500"
-            >
+            <Link to="/login" className="auth-link">
               sign in to your existing account
             </Link>
           </p>
         </div>
 
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
-          <div className="space-y-4">
-            <Input
-              label="Full Name"
-              type="text"
-              autoComplete="name"
-              placeholder="Enter your full name"
-              error={errors.name?.message}
-              {...register('name')}
-            />
+        <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
+          <Input
+            label="Full Name"
+            type="text"
+            autoComplete="name"
+            placeholder="Enter your full name"
+            error={errors.name?.message}
+            {...register('name')}
+          />
 
-            <Input
-              label="Email address"
-              type="email"
-              autoComplete="email"
-              placeholder="Enter your email"
-              error={errors.email?.message}
-              {...register('email')}
-            />
+          <Input
+            label="Email address"
+            type="email"
+            autoComplete="email"
+            placeholder="Enter your email"
+            error={errors.email?.message}
+            {...register('email')}
+          />
 
-            <Input
-              label="Password"
-              type="password"
-              autoComplete="new-password"
-              placeholder="Create a password"
-              error={errors.password?.message}
-              {...register('password')}
-            />
+          <Input
+            label="Password"
+            type="password"
+            autoComplete="new-password"
+            placeholder="Create a password"
+            error={errors.password?.message}
+            {...register('password')}
+          />
 
-            <Input
-              label="Confirm Password"
-              type="password"
-              autoComplete="new-password"
-              placeholder="Confirm your password"
-              error={errors.confirmPassword?.message}
-              {...register('confirmPassword')}
-            />
-          </div>
+          <Input
+            label="Confirm Password"
+            type="password"
+            autoComplete="new-password"
+            placeholder="Confirm your password"
+            error={errors.confirmPassword?.message}
+            {...register('confirmPassword')}
+          />
 
           {registerError && (
-            <div className="bg-red-50 border border-red-200 rounded-md p-3">
-              <p className="text-sm text-red-600">
-                {getErrorMessage(registerError)}
-              </p>
+            <div className="alert alert-error">
+              <p>{getErrorMessage(registerError)}</p>
             </div>
           )}
 
@@ -129,15 +120,11 @@ export function RegisterPage() {
             Create Account
           </Button>
 
-          <div className="text-xs text-gray-500 text-center">
+          <div className="center" style={{ fontSize: '0.75rem', color: '#6b7280' }}>
             By creating an account, you agree to our{' '}
-            <Link to="/terms" className="text-blue-600 hover:text-blue-500">
-              Terms of Service
-            </Link>{' '}
+            <Link to="/terms" className="auth-link">Terms of Service</Link>{' '}
             and{' '}
-            <Link to="/privacy" className="text-blue-600 hover:text-blue-500">
-              Privacy Policy
-            </Link>
+            <Link to="/privacy" className="auth-link">Privacy Policy</Link>
           </div>
         </form>
       </div>
