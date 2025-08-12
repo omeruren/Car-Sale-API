@@ -10,59 +10,41 @@ export function Navbar() {
   };
 
   return (
-    <nav className="bg-white shadow-lg">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav>
+      <div className="container">
+        <div className="flex justify-between items-center" style={{height: '4rem'}}>
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <Car className="h-8 w-8 text-blue-600" />
-            <span className="text-xl font-bold text-gray-900">CarSale</span>
+          <Link to="/" className="logo">
+            <Car />
+            <span>CarSale</span>
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              to="/cars" 
-              className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-            >
+          <div className="flex items-center space-x-8">
+            <Link to="/cars" className="nav-link">
               Browse Cars
             </Link>
             
             {isAuthenticated ? (
               <>
-                <Link 
-                  to="/create-car" 
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                <Link to="/create-car" className="nav-link">
                   Sell Car
                 </Link>
-                <Link 
-                  to="/profile" 
-                  className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  <User className="h-4 w-4" />
+                <Link to="/profile" className="nav-link flex items-center space-x-2">
+                  <User style={{width: '1rem', height: '1rem'}} />
                   <span>{user?.name || 'Profile'}</span>
                 </Link>
-                <button
-                  onClick={handleLogout}
-                  className="flex items-center space-x-1 text-gray-700 hover:text-red-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  <LogOut className="h-4 w-4" />
+                <button onClick={handleLogout} className="nav-link flex items-center space-x-2">
+                  <LogOut style={{width: '1rem', height: '1rem'}} />
                   <span>Logout</span>
                 </button>
               </>
             ) : (
               <>
-                <Link 
-                  to="/login" 
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
+                <Link to="/login" className="nav-link">
                   Login
                 </Link>
-                <Link 
-                  to="/register" 
-                  className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium"
-                >
+                <Link to="/register" className="btn btn-primary">
                   Sign Up
                 </Link>
               </>
